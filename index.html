@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OP charts</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c92d2);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    color:white;
+    overflow-x:hidden;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Navbar */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+    backdrop-filter: blur(10px);
+    background:rgba(255,255,255,0.05);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-weight:bold;
+    color:#00f2ff;
+    font-size:20px;
+}
+
+.nav-buttons button{
+    padding:8px 18px;
+    border-radius:25px;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.login-btn{
+    background:#00f2ff;
+    color:#000;
+    box-shadow:0 0 15px #00f2ff;
+}
+
+.about-btn{
+    background:transparent;
+    border:2px solid #00f2ff;
+    color:#00f2ff;
+    margin-left:8px;
+}
+
+.nav-buttons button:hover{
+    transform:scale(1.08);
+}
+
+/* Hero */
+.hero{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.hero-container{
+    position:relative;
+    max-width:1000px;
+    margin:auto;
+}
+
+.hero img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 0 30px #00f2ff;
+}
+
+.hero-text{
+    position:absolute;
+    bottom:20px;
+    right:20px;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:15px;
+    max-width:80%;
+}
+
+.hero-text h1{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.hero-text p{
+    font-size:14px;
+    line-height:1.6;
+    color:#ddd;
+}
+
+/* Cards */
+.cards{
+    padding:60px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    align-items:center;
+}
+
+.card{
+    width:100%;
+    max-width:320px;
+    background:rgba(255,255,255,0.07);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 15px #00f2ff33;
+    transform:translateY(40px);
+    opacity:0;
+    transition:all .6s ease;
+}
+
+.card.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+}
+
+.card-content p{
+    font-size:14px;
+    color:#ccc;
+}
+
+/* Desktop */
+@media(min-width:768px){
+    .cards{
+        flex-direction:row;
+        justify-content:center;
+    }
+
+    .card{
+        max-width:280px;
+    }
+
+    .hero-text h1{
+        font-size:36px;
+    }
+}
+/* About Section */
+.about-section{
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+}
+
+.about-container{
+    max-width:800px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 0 20px #00f2ff33;
+    text-align:center;
+}
+
+.about-container h2{
+    margin-bottom:20px;
+    color:#00f2ff;
+}
+
+.about-container p{
+    line-height:1.9;
+    color:#ddd;
+    font-size:15px;
+}
+
+/* موبایل */
+@media(max-width:768px){
+    .about-container{
+        padding:25px;
+    }
+}
+/* Advanced About Section */
+.about-section{
+    position:relative;
+    padding:120px 20px;
+    display:flex;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.glow-bg{
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,#00f2ff33,transparent 70%);
+    animation:moveLight 6s infinite alternate ease-in-out;
+}
+
+@keyframes moveLight{
+    from{transform:translate(-100px,-50px);}
+    to{transform:translate(200px,100px);}
+}
+
+.about-container{
+    position:relative;
+    max-width:850px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(20px);
+    padding:50px;
+    border-radius:25px;
+    box-shadow:0 0 40px #00f2ff33;
+    text-align:center;
+    transform:translateY(60px);
+    opacity:0;
+    transition:all 1s ease;
+}
+
+.about-container.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+.about-title{
+    font-size:32px;
+    margin-bottom:25px;
+    color:#00f2ff;
+    transform:translateX(-40px);
+    opacity:0;
+    transition:all 1s ease;
+}
+
+.about-container.show .about-title{
+    transform:translateX(0);
+    opacity:1;
+}
+
+.about-container p{
+    line-height:2;
+    font-size:16px;
+    color:#ddd;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .about-container{
+        padding:30px;
+    }
+
+    .about-title{
+        font-size:24px;
+    }
+
+    .about-container p{
+        font-size:14px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">OP charts</div>
+    <div class="nav-buttons">
+        <button class="about-btn" onclick="window.location.href='./about.html'">About</button>
+        <button class="login-btn" onclick="window.location.href='./Login.html'">Login</button>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-container">
+        <img src="main.jpg" alt="OP charts">
+        <div class="hero-text">
+            <h1>Global Markets. One Vision.</h1>
+            <p>
+              OP Charts delivers powerful insights,
+live data, and precision charting
+for traders who think ahead.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="cards">
+    <div class="card">
+        <img src="photo2.jpg">
+        <div class="card-content">
+            <h3>Real-Time Charts</h3>
+            <p>Monitor global markets with live candlestick and line charts updated instantly.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="photo3.jpg">
+        <div class="card-content">
+            <h3>Advanced Analytics</h3>
+            <p>Get insights with technical indicators like MACD, RSI, and moving averages.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="photo1.jpg">
+        <div class="card-content">
+            <h3>Global Market Watch</h3>
+            <p>Track multiple currencies, commodities, and cryptocurrencies from around the world.</p>
+        </div>
+    </div>
+</section>
+<section class="about-section">
+    <div class="glow-bg"></div>
+
+    <div class="about-container hidden">
+        <h2 class="about-title">Turn Insights Into Opportunity</h2>
+     <p>
+At OP Charts, we transform complex global market data into clear, actionable insights.
+Explore live charts, track multiple currencies, commodities, and cryptocurrencies,
+and leverage advanced technical indicators like MACD, RSI, and moving averages
+to make informed trading decisions. Our platform empowers both beginner and
+professional traders with intuitive tools, real-time analytics, and a unified dashboard
+designed for efficiency and precision. Stay ahead of the market, seize opportunities,
+and turn your data into strategic advantage with OP Charts.
+</p>
+    </div>
+</section>
+<script>
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+},{threshold:0.2});
+
+cards.forEach(card => {
+    observer.observe(card);
+});
+</script>
+<script>
+const aboutSection = document.querySelector('.about-container');
+
+const aboutObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+},{threshold:0.3});
+
+aboutObserver.observe(aboutSection);
+</script>
+
+</body>
+</html>

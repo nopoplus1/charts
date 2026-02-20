@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - OP Charts</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{
+    background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c92d2);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color:white;
+    overflow-x:hidden;
+}
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px 40px;
+    backdrop-filter: blur(10px);
+    background:rgba(255,255,255,0.05);
+    position:sticky;top:0;z-index:100;
+}
+.logo{font-weight:bold;color:#00f2ff;font-size:22px;}
+.nav-buttons button{
+    padding:10px 22px;border-radius:25px;border:none;cursor:pointer;font-weight:bold;transition:.3s;
+}
+.login-btn{background:#00f2ff;color:#000;box-shadow:0 0 15px #00f2ff;}
+.about-btn{background:transparent;border:2px solid #00f2ff;color:#00f2ff;margin-left:10px;}
+.nav-buttons button:hover{transform:scale(1.08);}
+
+/* Hero */
+.hero{position:relative;text-align:center;padding:80px 20px;}
+.hero img{width:90%;max-width:1000px;border-radius:25px;box-shadow:0 0 40px #00f2ff;}
+.hero-text{position:absolute;bottom:30px;right:30px;background:rgba(0,0,0,0.5);backdrop-filter:blur(12px);padding:25px;border-radius:15px;max-width:80%;}
+.hero-text h1{font-size:36px;margin-bottom:15px;color:#00f2ff;text-shadow:0 0 10px #00f2ff;}
+
+/* About Section */
+.about-section{position:relative;padding:100px 20px;display:flex;justify-content:center;overflow:hidden;}
+.glow-bg{position:absolute;width:600px;height:600px;background:radial-gradient(circle,#00f2ff55,transparent 70%);animation:moveGlow 8s infinite alternate ease-in-out;z-index:-1;top:-200px;left:-200px;border-radius:50%;}
+@keyframes moveGlow{0%{transform:translate(0,0);}50%{transform:translate(300px,200px);}100%{transform:translate(0,100px);}}
+.about-container{position:relative;max-width:900px;background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);padding:50px;border-radius:25px;box-shadow:0 0 40px #00f2ff33;text-align:center;transform:translateY(60px);opacity:0;transition:all 1s ease;}
+.about-container.show{transform:translateY(0);opacity:1;}
+
+/* Neon Typing Title */
+.about-title{font-size:36px;margin-bottom:25px;color:#00f2ff;text-shadow:0 0 15px #00f2ff;overflow:hidden;white-space:nowrap;border-right:4px solid #00f2ff;width:0;}
+.about-title.typing{animation:typing 4s steps(40,end),blink .8s infinite;}
+@keyframes typing{from{width:0;} to{width:100%;}}
+@keyframes blink{0%,50%,100%{border-color:#00f2ff;}25%,75%{border-color:transparent;}}
+
+/* About text */
+.about-container p{line-height:2;font-size:16px;color:#ddd;opacity:0;transform:translateY(30px);transition:all 0.8s ease;}
+.about-container.show p{opacity:1;transform:translateY(0);}
+
+/* Feature Cards */
+.features{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;margin-top:50px;}
+.feature-card{background:rgba(255,255,255,0.05);backdrop-filter:blur(15px);padding:25px;border-radius:20px;max-width:250px;flex:1;box-shadow:0 0 25px #00f2ff33;transform:translateY(40px);opacity:0;transition:all 0.8s ease;}
+.feature-card.show{transform:translateY(0);opacity:1;}
+.feature-card h3{margin-bottom:12px;color:#00f2ff;text-shadow:0 0 10px #00f2ff;}
+.feature-card p{font-size:14px;line-height:1.6;color:#ccc;}
+
+/* Mobile */
+@media(max-width:768px){
+    .hero img{width:100%;}
+    .hero-text h1{font-size:28px;}
+    .hero-text p{font-size:14px;}
+    .about-container{padding:30px;}
+    .about-title{font-size:26px;}
+    .about-container p{font-size:14px;}
+    .features{flex-direction:column;gap:20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">OP Charts</div>
+<div class="nav-buttons">
+    <button class="about-btn" onclick="window.location.href='asli.html'">dashboard</button>
+    <button class="login-btn"onclick="window.location.href='Login.html'" >Login</button>
+</div>
+</nav>
+<!-- Hero -->
+<section class="hero">
+<img src="YOUR_HERO_IMAGE.png" alt="Trading Interface">
+<div class="hero-text">
+    <h1>Turn Insights Into Opportunity</h1>
+    <p>
+        At OP Charts, we transform complex global market data into clear, actionable insights.
+        Explore live charts, track multiple currencies, commodities, and cryptocurrencies,
+        and leverage advanced technical indicators to make informed trading decisions.
+    </p>
+</div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+<div class="glow-bg"></div>
+<div class="about-container">
+    <h2 class="about-title"></h2>
+    <p>
+        OP Charts empowers traders of all levels with intuitive tools, real-time analytics,
+        and a unified dashboard designed for efficiency and precision. Stay ahead of the market,
+        seize opportunities, and turn your data into strategic advantage. Our platform offers
+        advanced charting, live updates, technical indicators, and global market monitoring —
+        all crafted to enhance your trading experience and help you make smarter decisions every day.
+    </p>
+
+    <div class="features">
+        <div class="feature-card"><h3>Real-Time Charts</h3><p>Monitor live global markets with candlestick, line, and area charts updated instantly.</p></div>
+        <div class="feature-card"><h3>Advanced Analytics</h3><p>Use MACD, RSI, moving averages, and other indicators to refine your trading strategies.</p></div>
+        <div class="feature-card"><h3>Global Market Watch</h3><p>Track multiple currencies, commodities, and cryptocurrencies from around the world.</p></div>
+    </div>
+</div>
+</section>
+
+<script>
+// Typing effect
+const title = document.querySelector('.about-title');
+const text = "Turn Insights Into Opportunity";
+let i=0;
+function typeTitle(){
+    if(i<text.length){
+        title.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeTitle, 100);
+    }
+}
+typeTitle();
+
+// Reveal on scroll
+const aboutContainer = document.querySelector('.about-container');
+const featureCards = document.querySelectorAll('.feature-card');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+},{threshold:0.2});
+
+observer.observe(aboutContainer);
+featureCards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>

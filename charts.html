@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradingView Chart Widget Custom Colors</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  #tradingview_widget {
+    height: 100%;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<div id="tradingview_widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+new TradingView.widget({
+  "autosize": true,
+  "symbol": "BINANCE:BTCUSDT",
+  "interval": "60",
+  "timezone": "Asia/Tehran",
+  "theme": "White",
+  "style": "1",
+  "locale": "fa",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "allow_symbol_change": true,
+  "hide_top_toolbar": false,
+  "save_image": true,
+  "studies": [],
+  "container_id": "tradingview_widget",
+  "withdateranges": true,
+  "hide_side_toolbar": false,
+  "details": true,
+  
+  // اینجا رنگ‌های پیش‌فرض رو می‌تونی تغییر بدی
+  "overrides": {
+    "mainSeriesProperties.candleStyle.upColor": "#26a69a",       // کندل صعودی
+    "mainSeriesProperties.candleStyle.downColor": "#ef5350",     // کندل نزولی
+    "mainSeriesProperties.candleStyle.borderUpColor": "#26a69a",
+    "mainSeriesProperties.candleStyle.borderDownColor": "#ef5350",
+    "paneProperties.background": "#1e1e1e",                      // پس زمینه چارت
+    "paneProperties.vertGridProperties.color": "#333333",        // خطوط عمودی
+    "paneProperties.horzGridProperties.color": "#333333",        // خطوط افقی
+    "scalesProperties.textColor": "#FFFFFF"                       // رنگ اعداد کنار چارت
+  }
+});
+</script>
+
+</body>
+</html>

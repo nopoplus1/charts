@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{text-decoration: none;
+transition: 0.5s;
+color: #0080ff;}
+body{
+    font-family: vazir;
+    background-color: #f9fafb;
+}
+
+/*main-header*/
+.main-header{
+    background: white;
+    border: 1px solid #e6e3e3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    border-radius: 30px;
+    
+}
+    
+.logo{
+    width: 95px;
+    height: auto;
+}
+ul{
+    list-style: none;
+}
+
+.header-list{
+    display: flex;
+    gap: 25px;
+    padding: 8px;
+    border-radius: 10px;
+    
+    
+    
+    
+}
+.back1:hover{
+    background-color: rgb(0, 47, 255);
+    color: #f9fafb;
+    padding: 8px;
+    border-radius: 10px;
+}.back2:hover{
+    background-color: rgb(0, 47, 255);
+    color: #f9fafb;
+    padding: 8px;
+    border-radius: 10px;
+    
+
+}.back3:hover{
+    background-color: rgb(0, 47, 255);
+    padding: 8px;
+    border-radius: 10px;
+    color: #f9fafb;
+}
+
+.header-btn{
+   padding: 10px 16px;
+   border: none;
+   border-radius: 10px;
+   background-color: #0080ff;
+   margin: 30px;
+   color: aliceblue;
+   transition: 0.5s;
+   
+}
+
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+    padding: 10px 20px;
+}
+ul{
+    margin-left: 20px;
+}
+.header-btn:hover{
+    background-color: #003061;
+}
+.img1{
+  width: 1500px;
+  height: auto;
+}
+.p1{
+    text-align: right;
+    margin-top: -1000px;
+   margin-right:340px;
+}
+h1{color: black;}
+.text2{
+    width: 1200px;
+    max-width: 90%;
+    margin: 100px;
+    padding: 20px;
+   background-color: rgb(235, 235, 232);
+   border-radius: 15px;
+   margin: 70px 0 0 auto;
+   color: #023c75;
+   line-height: 40px;
+}
+
+
+
+
+
+.card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 40px;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* عنوان */
+.card h1 {
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+/* عکس */
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* متن */
+.card p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* دکمه */
+.card button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: #0056b3;
+}
+.card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 40px;
+    max-width: 400px;
+    text-align: center;
+    margin: 50px auto; /* فاصله از بالا و خودکار افقی */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
